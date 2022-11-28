@@ -26,6 +26,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+// @wzm 2022-11-28
 import { computed } from 'vue'
 import { useNamespace } from '@element-plus/hooks'
 import { IconComponentMap, IconMap, resultProps } from './result'
