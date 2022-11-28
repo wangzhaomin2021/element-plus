@@ -9,6 +9,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+// @wzm 2022-11-28
 import { useNamespace } from '@element-plus/hooks'
 import { cardProps } from './card'
 
