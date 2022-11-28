@@ -2,6 +2,7 @@
   <div :class="ns.b()">
     <div :class="ns.e('icon')">
       <slot name="icon">
+      <!-- 元组件， 应用场景： 某个位置组件可能存在多样性时，可以利用is属性经行切换  is 可以接收 注册过的组件名 或 组件对象 -->
         <component
           :is="resultIcon.component"
           v-if="resultIcon.component"
