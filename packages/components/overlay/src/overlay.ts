@@ -1,11 +1,13 @@
+// @wzm 2022-11-29
 import { createVNode, defineComponent, h, renderSlot } from 'vue'
-import { PatchFlags, buildProps, definePropType } from '@element-plus/utils'
+import { PatchFlags, buildProps, definePropType } from '@element-plus/utils' // PatchFlags ?
 import { useNamespace, useSameTarget } from '@element-plus/hooks'
 
 import type { CSSProperties, ExtractPropTypes } from 'vue'
 import type { ZIndexProperty } from 'csstype'
 
 export const overlayProps = buildProps({
+  // 是否有蒙层（灰色）效果,且会影响是否有点击蒙层关闭效果
   mask: {
     type: Boolean,
     default: true,
