@@ -34,7 +34,9 @@
             @click.stop
           >
             <span ref="focusStartRef" :class="ns.e('sr-focus')" tabindex="-1" />
+            <!-- 头部内容  el-drawer__header -->
             <header v-if="withHeader" :class="ns.e('header')">
+              <!-- header 作用域插槽 title-id, title-class, close -->
               <slot
                 v-if="!$slots.title"
                 name="header"
@@ -42,6 +44,7 @@
                 :title-id="titleId"
                 :title-class="ns.e('title')"
               >
+                <!-- header插槽默认内容 -->
                 <span
                   v-if="!$slots.title"
                   :id="titleId"
@@ -51,9 +54,11 @@
                   {{ title }}
                 </span>
               </slot>
+              <!-- 废弃的插槽 使用header -->
               <slot v-else name="title">
                 <!-- DEPRECATED SLOT -->
               </slot>
+              <!-- 关闭按钮 el-drawer__close-btn -->
               <button
                 v-if="showClose"
                 :aria-label="t('el.drawer.close')"
@@ -61,14 +66,17 @@
                 type="button"
                 @click="handleClose"
               >
+                <!-- el-drawer__close -->
                 <el-icon :class="ns.e('close')"><close /></el-icon>
               </button>
             </header>
+            <!-- 默认插槽 body内容 el-drawer__body -->
             <template v-if="rendered">
               <div :id="bodyId" :class="ns.e('body')">
                 <slot />
               </div>
             </template>
+            <!-- 脚部 el-drawer__footer -->
             <div v-if="$slots.footer" :class="ns.e('footer')">
               <slot name="footer" />
             </div>
