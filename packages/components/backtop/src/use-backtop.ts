@@ -20,6 +20,7 @@ export const useBackTop = (
     if (!el.value) return
     const beginTime = Date.now()
     const beginValue = el.value.scrollTop
+    // 平滑滚动效果 0.5s左右
     const frameFunc = () => {
       if (!el.value) return
       const progress = (Date.now() - beginTime) / 500
@@ -42,11 +43,11 @@ export const useBackTop = (
   }
 
   const handleScrollThrottled = useThrottleFn(handleScroll, 300, true)
-
+  // container ref 会有变化响应  
   useEventListener(container, 'scroll', handleScrollThrottled)
   onMounted(() => {
     container.value = document
-    el.value = document.documentElement
+    el.value = document.documentElement // 此对象才有scrollTop
 
     if (props.target) {
       el.value = document.querySelector<HTMLElement>(props.target) ?? undefined
