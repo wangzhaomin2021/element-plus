@@ -18,6 +18,7 @@
 </template>
 
 <script lang="ts" setup>
+// @wzm 2022-12-3
 import { getCurrentInstance, inject, ref, toRefs } from 'vue'
 import ElIcon from '@element-plus/components/icon'
 import { breadcrumbKey } from '@element-plus/tokens'
@@ -37,6 +38,7 @@ const breadcrumbContext = inject(breadcrumbKey, undefined)!
 const ns = useNamespace('breadcrumb')
 
 const { separator, separatorIcon } = toRefs(breadcrumbContext)
+// *********** router获取
 const router = instance.appContext.config.globalProperties.$router as Router
 
 const link = ref<HTMLSpanElement>()
