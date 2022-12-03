@@ -25,7 +25,7 @@ const props = defineProps(breadcrumbProps)
 
 const ns = useNamespace('breadcrumb')
 const breadcrumb = ref<HTMLDivElement>()
-
+// 隔代注入
 provide(breadcrumbKey, props)
 
 onMounted(() => {
