@@ -1,5 +1,7 @@
 <template>
+  <!-- @wzm 2022-12-5 -->
   <div :class="kls">
+    <!-- 面包屑插槽 -->
     <div :class="ns.e('breadcrumb')">
       <slot name="breadcrumb" />
     </div>
@@ -11,6 +13,7 @@
           tabindex="0"
           @click="handleClick"
         >
+          <!-- 头部图标插槽 -->
           <div
             v-if="icon || $slots.icon"
             :aria-label="title || t('el.pageHeader.title')"
@@ -22,21 +25,27 @@
               </el-icon>
             </slot>
           </div>
+          
+          <!-- 头部标题插槽 -->
           <div :class="ns.e('title')">
             <slot name="title">{{ title || t('el.pageHeader.title') }}</slot>
           </div>
         </div>
         <el-divider direction="vertical" />
+        
+        <!-- 头部内容插槽 -->
         <div :class="ns.e('content')">
           <slot name="content">{{ content }}</slot>
         </div>
       </div>
 
+      <!-- 操作插槽 -->
       <div v-if="$slots.extra" :class="ns.e('extra')">
         <slot name="extra" />
       </div>
     </div>
-
+    
+    <!-- 内容 -->
     <div v-if="$slots.default" :class="ns.e('main')">
       <slot />
     </div>
