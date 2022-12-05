@@ -4,11 +4,13 @@
     :href="disabled || !href ? undefined : href"
     @click="handleClick"
   >
+    <!-- 前置icon -->
     <el-icon v-if="icon"><component :is="icon" /></el-icon>
+    <!-- 默认插槽 -->
     <span v-if="$slots.default" :class="ns.e('inner')">
       <slot />
     </span>
-
+    <!-- 后置icon插槽 -->
     <slot v-if="$slots.icon" name="icon" />
   </a>
 </template>
