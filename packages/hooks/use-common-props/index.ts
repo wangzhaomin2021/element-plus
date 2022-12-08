@@ -39,6 +39,7 @@ export const useSize = (
   )
 }
 
+// disabled 1.自身 2.所在form表单状态
 export const useDisabled = (fallback?: MaybeRef<boolean | undefined>) => {
   const disabled = useProp<boolean>('disabled')
   const form = inject(formContextKey, undefined)
