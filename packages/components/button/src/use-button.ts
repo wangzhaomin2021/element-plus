@@ -1,3 +1,4 @@
+// @wzm 2022-12-8
 import { Text, computed, inject, ref, useSlots } from 'vue'
 import {
   useDeprecated,
@@ -26,15 +27,19 @@ export const useButton = (
     computed(() => props.type === 'text')
   )
 
+  // 按钮组上下文 & 全局按钮配置 
   const buttonGroupContext = inject(buttonGroupContextKey, undefined)
   const globalConfig = useGlobalConfig('button')
   const { form } = useFormItem()
+  // 按钮尺寸
   const _size = useSize(computed(() => buttonGroupContext?.size))
+  // 是否禁用
   const _disabled = useDisabled()
   const _ref = ref<HTMLButtonElement>()
   const slots = useSlots()
-
+  // 类型
   const _type = computed(() => props.type || buttonGroupContext?.type || '')
+  // 文字间自动插入空白
   const autoInsertSpace = computed(
     () => props.autoInsertSpace ?? globalConfig.value?.autoInsertSpace ?? false
   )
@@ -52,6 +57,7 @@ export const useButton = (
     return false
   })
 
+  // click
   const handleClick = (evt: MouseEvent) => {
     if (props.nativeType === 'reset') {
       form?.resetFields()
