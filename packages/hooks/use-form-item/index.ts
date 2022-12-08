@@ -12,6 +12,7 @@ import { useId } from '../use-id'
 import type { FormItemContext } from '@element-plus/tokens'
 import type { ComputedRef, Ref, WatchStopHandle } from 'vue'
 
+// 提取form 与 formItem， 若上层有注入的话
 export const useFormItem = () => {
   const form = inject(formContextKey, undefined)
   const formItem = inject(formItemContextKey, undefined)
