@@ -43,6 +43,7 @@
         </el-icon>
       </el-icon>
     </span>
+    <!-- 辅助文字 -->
     <span v-if="showText || showScore" :class="ns.e('text')">
       {{ text }}
     </span>
